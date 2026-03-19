@@ -3,89 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 세계전람 유아교육전 참가사 모집</title>
+    <title>제57회 서울국제유아교육전&키즈페어 참가사 모집</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
     <style>
-        body { font-family: 'Pretendard', sans-serif; background-color: #FFFDF5; }
+        body { font-family: 'Pretendard', sans-serif; background-color: #FFFDF5; scroll-behavior: smooth; }
         .bg-educare-yellow { background-color: #FFD400; }
         .text-educare-yellow { color: #FFD400; }
+        .border-educare-yellow { border-color: #FFD400; }
         .rounded-custom { border-radius: 2.5rem; }
         .hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
-        .animate-float { animation: float 3s ease-in-out infinite; }
+        .hover-lift:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -5px rgba(255, 212, 0, 0.3); }
+        
+        .highlight-text {
+            color: #FFD400;
+            position: relative;
+            display: inline-block;
+            font-weight: 900;
+        }
+        
+        .animate-float { animation: float 4s ease-in-out infinite; }
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .category-grid span {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 8px 18px;
+            border-radius: 99px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #333;
+            display: inline-block;
+            margin: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+        
+        .logo-text {
+            font-family: 'Pretendard', sans-serif;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+        }
+
+        .benefit-card {
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            padding: 1.5rem;
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            background-color: #f8fafc;
+            transition: all 0.2s;
+            color: #1a202c;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #FFD400;
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(255, 212, 0, 0.1);
+        }
+
+        /* 성공 알림창 스타일 */
+        #success-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
-<body class="text-slate-800">
+<body class="text-slate-800 text-left">
 
     <!-- Navigation -->
-    <nav class="bg-white border-b border-yellow-100 sticky top-0 z-50 px-6 py-4">
+    <nav class="bg-white border-b border-yellow-100 sticky top-0 z-50 px-6 py-4 shadow-sm">
         <div class="max-w-5xl mx-auto flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-educare-yellow rounded-lg flex items-center justify-center font-black text-white text-xl shadow-sm">E</div>
-                <span class="font-black text-xl tracking-tight text-slate-800">EDUCARE 2026</span>
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-educare-yellow rounded-lg flex items-center justify-center font-black text-white text-xl shadow-sm">유</div>
+                <div class="flex flex-col leading-none">
+                    <span class="logo-text text-xl md:text-2xl text-slate-900">서울국제유아교육전&키즈페어</span>
+                    <span class="text-[10px] font-bold text-slate-400 mt-1 uppercase tracking-wider">EDUCARE&KIDS FAIR</span>
+                </div>
             </div>
-            <div class="hidden md:flex gap-8 text-sm font-bold text-slate-500">
-                <a href="#" class="hover:text-yellow-500">전시소개</a>
-                <a href="#" class="hover:text-yellow-500">참가안내</a>
-                <a href="#" class="hover:text-yellow-500">이벤트</a>
+            <div class="hidden md:flex gap-6 text-sm font-bold text-slate-500 items-center">
+                <div class="flex flex-col items-end mr-4">
+                    <span class="text-[10px] text-yellow-600 font-black">2026.07.30 - 08.02</span>
+                    <span class="text-[10px] text-slate-400 font-bold">COEX Hall A</span>
+                </div>
+                <a href="#inquiry-section" class="bg-educare-yellow px-6 py-2.5 rounded-xl text-slate-900 font-black hover:bg-yellow-400 transition-colors shadow-md shadow-yellow-100 no-underline">1:1 상담 신청</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="px-6 pt-12 md:pt-20 pb-16 overflow-hidden">
+    <header class="px-6 pt-12 md:pt-20 pb-20 overflow-hidden relative">
         <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="text-left space-y-6 relative z-10">
+            <div class="space-y-6 relative z-10">
                 <div class="inline-flex items-center gap-2 bg-yellow-100 text-yellow-700 px-4 py-1.5 rounded-full text-sm font-bold">
-                    <span>🎫</span> 3월 말까지 얼리버드 20% 할인
+                    <span class="animate-pulse">📍</span> 코엑스 전시장 A홀 (200개 기업, 600개 부스)
                 </div>
-                <h1 class="text-4xl md:text-6xl font-black leading-[1.2] text-slate-900">
-                    국내 최대 <br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-orange-500">유아교육전</span> <br/>
-                    파트너 모집
-                </h1>
+                <div class="space-y-2">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] text-slate-900">
+                        제57회 서울국제<br/>
+                        <span class="text-yellow-500">유아교육전</span> & <br/>
+                        <span class="highlight-text">키즈페어</span>
+                    </h1>
+                    <p class="text-2xl md:text-3xl font-black text-slate-700 tracking-tight pt-2">
+                        07.30.(목) – 08.02.(일)
+                    </p>
+                </div>
                 <p class="text-lg text-slate-500 leading-relaxed max-w-md font-medium">
-                    4월 20일, 코엑스 A홀에서 귀사의 혁신적인 교육 콘텐츠를 5만 명의 학부모에게 선보이세요.
+                    팔로워 숫자보다 중요한 건 <span class="font-bold text-slate-900 underline underline-offset-4 decoration-yellow-400 text-xl">직접 만남</span>입니다. 
+                    4일 간 <span class="font-bold text-slate-900">65,929명</span>의 핵심 관람객과 대형 유통사 바이어를 한자리에서 만나세요.
                 </p>
-                <div class="flex flex-col sm:row gap-4 pt-4">
-                    <a href="#" class="bg-educare-yellow text-slate-900 px-8 py-4 rounded-2xl font-black text-lg hover-lift flex items-center justify-center gap-2 no-underline">
-                        참가 신청하기 ↗
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="https://www.eformsign.com/?s=3Z7M9U" target="_blank" class="bg-educare-yellow text-slate-900 px-8 py-5 rounded-2xl font-black text-xl hover-lift flex items-center justify-center gap-3 no-underline shadow-lg shadow-yellow-200">
+                        전시 참가신청 🖱️
                     </a>
+                    <div class="flex flex-col gap-2">
+                        <a href="#inquiry-section" class="bg-white border-2 border-slate-200 text-slate-600 px-8 py-5 rounded-2xl font-black text-lg hover:bg-slate-50 transition-colors flex items-center justify-center no-underline">
+                            1:1 상담 신청하기
+                        </a>
+                        <a href="http://www.educare.co.kr/" target="_blank" class="text-slate-400 text-xs font-bold text-center hover:text-slate-600 transition-colors flex items-center justify-center gap-1">
+                            전시회 더 알아보기 <span class="text-[10px]">↗</span>
+                        </a>
+                    </div>
                 </div>
             </div>
             
-            <!-- Visual Grid -->
+            <!-- Visual Grid: 참가 시 이점 중심 -->
             <div class="relative animate-float">
-                <div class="absolute inset-0 bg-yellow-200/50 rounded-full blur-3xl -z-10"></div>
+                <div class="absolute inset-0 bg-yellow-200/40 rounded-full blur-3xl -z-10"></div>
                 <div class="grid grid-cols-2 gap-4">
                     <div class="space-y-4 pt-8">
-                        <div class="bg-white p-6 rounded-custom shadow-xl border border-yellow-50 transform -rotate-3">
-                            <div class="w-12 h-12 bg-rose-100 text-rose-500 rounded-2xl flex items-center justify-center mb-4">👥</div>
-                            <p class="font-black text-2xl text-slate-800">5만+</p>
-                            <p class="text-sm text-slate-400 font-bold uppercase tracking-wider text-[10px]">Expected Visitors</p>
+                        <div class="bg-white p-6 rounded-custom shadow-xl border border-yellow-100 transform -rotate-2">
+                            <div class="w-12 h-12 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center mb-4 text-2xl">🏫</div>
+                            <p class="font-black text-xl text-slate-800 tracking-tighter">원장님 B2B</p>
+                            <p class="text-[11px] text-slate-400 font-bold leading-tight">교육기관 및 어린이집<br/>핵심 결정권자 연결</p>
                         </div>
-                        <div class="bg-white p-6 rounded-custom shadow-xl border border-emerald-50 transform rotate-2">
-                            <div class="w-12 h-12 bg-emerald-100 text-emerald-500 rounded-2xl flex items-center justify-center mb-4">🌿</div>
-                            <p class="font-black text-xl text-slate-800">Eco-Friendly</p>
-                            <p class="text-sm text-slate-400 font-bold uppercase tracking-wider text-[10px]">Exhibition Theme</p>
+                        <div class="bg-white p-6 rounded-custom shadow-xl border border-yellow-100 transform rotate-3">
+                            <div class="w-12 h-12 bg-blue-100 text-blue-500 rounded-2xl flex items-center justify-center mb-4 text-2xl">🏢</div>
+                            <p class="font-black text-xl text-slate-800">대형 유통 계약</p>
+                            <p class="text-[11px] text-slate-400 font-bold leading-tight">현대·신세계·롯데백화점<br/>쿠팡·마켓컬리 입점 기회</p>
                         </div>
                     </div>
                     <div class="space-y-4">
-                         <div class="bg-gradient-to-br from-yellow-400 to-orange-400 p-6 rounded-custom shadow-2xl text-white transform rotate-3">
-                          <p class="text-sm font-bold opacity-80 mb-2">Early Bird</p>
-                          <p class="text-4xl font-black">20%</p>
-                          <p class="text-lg font-bold">Discount</p>
-                          <div class="mt-8 bg-white/20 p-2 rounded-xl text-xs text-center font-bold">~ 03. 31 까지</div>
+                         <div class="bg-educare-yellow p-6 rounded-custom shadow-2xl text-slate-900 transform rotate-2">
+                          <p class="text-sm font-bold opacity-70 mb-2">Growth Point</p>
+                          <p class="text-4xl font-black tracking-tighter italic">성장 전환점</p>
+                          <p class="text-lg font-bold leading-tight">온라인 팔로워를<br/>실구매 고객으로 전환</p>
+                          <div class="mt-8 bg-black/10 p-2 rounded-xl text-[10px] text-center font-bold uppercase tracking-tight">브랜드 인지도 급상승</div>
                         </div>
-                        <div class="bg-white p-6 rounded-custom shadow-xl border border-sky-50 transform -rotate-2">
-                           <div class="w-12 h-12 bg-sky-100 text-sky-500 rounded-2xl flex items-center justify-center mb-4">📍</div>
-                          <p class="font-black text-xl text-slate-800">COEX A</p>
-                          <p class="text-sm text-slate-400 font-bold uppercase tracking-wider text-[10px]">Venue Location</p>
+                        <div class="bg-white p-6 rounded-custom shadow-xl border border-yellow-100 transform -rotate-3">
+                           <div class="w-12 h-12 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center mb-4 text-2xl">💬</div>
+                          <p class="font-black text-xl text-slate-800">진짜 고객 반응</p>
+                          <p class="text-[11px] text-slate-400 font-bold leading-tight">온라인에선 알 수 없던<br/>고객의 리얼한 피드백</p>
                         </div>
                     </div>
                 </div>
@@ -95,98 +180,254 @@
 
     <main class="max-w-5xl mx-auto px-6 space-y-24">
         
-        <!-- Eco Section -->
-        <section class="bg-white rounded-[3rem] p-10 md:p-16 shadow-sm border border-slate-100 relative overflow-hidden">
-            <div class="max-w-3xl relative z-10">
-                <div class="flex items-center gap-3 text-emerald-600 font-black mb-4 uppercase tracking-widest text-sm">
-                   <div class="w-6 h-1 bg-emerald-500"></div>
-                   Eco-Friendly Initiative
+        <!-- Schedule Info Box -->
+        <section class="grid md:grid-cols-3 gap-8 bg-slate-900 text-white p-10 rounded-[3rem] shadow-xl">
+            <div class="flex flex-col gap-2">
+                <span class="text-educare-yellow font-black uppercase text-xs tracking-widest">Date</span>
+                <p class="text-2xl font-black leading-tight">2026. 07. 30.(목)<br/>– 08. 02.(일)</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="text-educare-yellow font-black uppercase text-xs tracking-widest">Venue</span>
+                <p class="text-2xl font-black leading-tight">코엑스(COEX)<br/>전시장 A홀</p>
+            </div>
+            <div class="flex flex-col gap-2">
+                <span class="text-educare-yellow font-black uppercase text-xs tracking-widest">Host</span>
+                <p class="text-2xl font-black leading-tight">(주)세계전람<br/><span class="text-sm font-normal text-slate-400 tracking-tighter uppercase">EDUCARE & KIDS FAIR</span></p>
+            </div>
+        </section>
+
+        <!-- Recruitment Items Section -->
+        <section class="bg-white rounded-[3rem] p-10 md:p-16 border border-yellow-100">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+                <div>
+                    <span class="bg-yellow-400 text-slate-900 px-3 py-1 font-black text-sm mb-2 inline-block">이런 품목 좋아요</span>
+                    <h2 class="text-3xl font-black">키즈 및 부모를 위한<br/>라이프스타일 & 체험 품목</h2>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-black mb-6 leading-tight">
-                    아이들의 깨끗한 미래를 위한<br/>
-                    <span class="underline decoration-emerald-300 decoration-8 underline-offset-4">친환경 부스 테마</span> 캠페인
-                </h2>
-                <p class="text-lg text-slate-500 mb-10 leading-relaxed font-medium">
-                    세계전람 유아교육전은 단순한 전시를 넘어 가치를 전달합니다. 이번 행사에서는 친환경 소재 부스 운영 업체에게 다양한 혜택과 홍보 기회를 우선 제공합니다.
-                </p>
-                <div class="grid sm:grid-cols-3 gap-6">
-                    <div class="bg-emerald-50/50 p-6 rounded-3xl border border-emerald-100">
-                        <h4 class="font-black text-emerald-700 mb-2">에코 어워드</h4>
-                        <p class="text-sm text-slate-600">우수 친환경 기업 시상</p>
+                <p class="text-slate-400 text-sm font-bold">추후 주최사 조율 후 배정 진행</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h4 class="font-black text-slate-800 mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-yellow-400 rounded-full"></span> 키즈 라이프스타일
+                    </h4>
+                    <div class="category-grid">
+                        <span>키즈 패션</span> <span>의류</span> <span>가구</span> <span>침구</span> 
+                        <span>액세서리</span> <span>잡화</span> <span>캠핑용품</span> <span>간식/푸드</span>
                     </div>
-                    <div class="bg-emerald-50/50 p-6 rounded-3xl border border-emerald-100">
-                        <h4 class="font-black text-emerald-700 mb-2">홍보 지원</h4>
-                        <p class="text-sm text-slate-600">뉴스레터 개별 인터뷰</p>
-                    </div>
-                    <div class="bg-emerald-50/50 p-6 rounded-3xl border border-emerald-100">
-                        <h4 class="font-black text-emerald-700 mb-2">가산점</h4>
-                        <p class="text-sm text-slate-600">내년도 우선 구좌 배치</p>
+                </div>
+                <div>
+                    <h4 class="font-black text-slate-800 mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-yellow-400 rounded-full"></span> 교육 및 체험
+                    </h4>
+                    <div class="category-grid">
+                        <span>미술놀이</span> <span>체육활동</span> <span>음악교육</span> <span>키즈카페</span> 
+                        <span>쿠킹 클래스</span> <span>공방</span> <span>만들기</span> <span>에듀테크</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Details Grid -->
-        <section>
-            <div class="text-center mb-12">
-                <h3 class="text-2xl font-black text-slate-900 mb-2">모집 요강 요약</h3>
-                <p class="text-slate-400 font-bold uppercase tracking-widest text-[10px]">Exhibition Details</p>
+        <!-- Special Benefits Section -->
+        <section class="space-y-12">
+            <div class="text-center">
+                <h2 class="text-4xl font-black text-slate-900">일반 참가와는 다른 <span class="text-blue-600 italic underline">특전 및 혜택</span></h2>
+                <p class="text-slate-500 mt-4 font-bold">오직 이 링크를 통한 상담 신청 시 제공되는 브랜드 지원사항</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="flex gap-6 p-8 bg-white rounded-3xl border border-slate-100 hover-lift">
-                    <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl">📅</div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="benefit-card hover-lift">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-xl">✨</div>
                     <div>
-                        <h4 class="text-xl font-black mb-2">전시 일정</h4>
-                        <p class="text-slate-600 leading-relaxed">2026. 04. 20 (월) - 04. 23 (목)<br/>신청 마감: 2026. 03. 31 (화)</p>
+                        <p class="font-black text-slate-800">프리미엄 목공부스</p>
+                        <p class="text-xs text-slate-400">무상 업그레이드 지원</p>
                     </div>
                 </div>
-                <div class="flex gap-6 p-8 bg-white rounded-3xl border border-slate-100 hover-lift">
-                    <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl">📍</div>
+                <div class="benefit-card hover-lift">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-xl">📢</div>
                     <div>
-                        <h4 class="text-xl font-black mb-2">개최 장소</h4>
-                        <p class="text-slate-600 leading-relaxed">서울 삼성동 코엑스(COEX)<br/>1층 전관 (A홀)</p>
+                        <p class="font-black text-slate-800">공식 홍보 채널 노출</p>
+                        <p class="text-xs text-slate-400">홈페이지 및 SNS 전격 지원</p>
                     </div>
                 </div>
+                <div class="benefit-card hover-lift">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-xl">🗺️</div>
+                    <div>
+                        <p class="font-black text-slate-800">파빌리온 조성</p>
+                        <p class="text-xs text-slate-400">관람객 체류시간 확보</p>
+                    </div>
+                </div>
+                <div class="benefit-card hover-lift">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-xl">📄</div>
+                    <div>
+                        <p class="font-black text-slate-800">브랜드 집중 노출</p>
+                        <p class="text-xs text-slate-400">현장 접지물 내 전용 표기</p>
+                    </div>
+                </div>
+                <div class="benefit-card hover-lift">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-500 rounded-full flex items-center justify-center text-xl">💰</div>
+                    <div>
+                        <p class="font-black text-slate-800">참가비 지원사업</p>
+                        <p class="text-xs text-slate-400">관련 정보 및 가이드 제공</p>
+                    </div>
+                </div>
+                <div class="benefit-card hover-lift bg-blue-600 text-white">
+                    <div class="w-12 h-12 bg-white/20 text-white rounded-full flex items-center justify-center text-xl">🤝</div>
+                    <div>
+                        <p class="font-black">1:1 맞춤형 상담</p>
+                        <p class="text-xs text-white/70">브랜드별 최적의 플랜 제안</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inquiry Form Section -->
+        <section id="inquiry-section" class="scroll-mt-24">
+            <div class="bg-slate-900 rounded-[3rem] p-10 md:p-16 text-white overflow-hidden relative">
+                <div class="max-w-3xl mx-auto relative z-10">
+                    <div class="text-center mb-12">
+                        <span class="text-educare-yellow font-black text-sm tracking-widest uppercase">Quick Inquiry</span>
+                        <h2 class="text-3xl md:text-4xl font-black mt-2">입점 및 참가 상담 신청</h2>
+                        <p class="text-slate-400 mt-4 font-medium">정보를 입력해주시면 담당자가 빠르게 안내드리겠습니다.</p>
+                    </div>
+
+                    <form id="inquiry-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-slate-300 ml-1">업체명</label>
+                                <input type="text" name="company" placeholder="회사명을 입력해주세요" class="form-input" required>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-slate-300 ml-1">연락처</label>
+                                <input type="tel" name="phone" placeholder="010-0000-0000" class="form-input" required>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-slate-300 ml-1">이메일 주소</label>
+                                <input type="email" name="email" placeholder="example@email.com" class="form-input" required>
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold text-slate-300 ml-1">주요 품목</label>
+                                <input type="text" name="category" placeholder="예: 키즈 패션, 체험 프로그램 등" class="form-input" required>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold text-slate-300 ml-1">궁금한 내용 (선택)</label>
+                            <textarea name="message" rows="4" placeholder="참가비 상세 견적, 부스 배치 등 궁금하신 내용을 적어주세요." class="form-input resize-none"></textarea>
+                        </div>
+                        <div class="pt-4">
+                            <button type="submit" id="submit-btn" class="w-full bg-educare-yellow text-slate-900 py-5 rounded-2xl font-black text-xl hover:bg-yellow-400 transition-all shadow-xl shadow-yellow-400/10 flex items-center justify-center gap-3">
+                                <span>지금 상담 신청하기</span>
+                                <div id="loading-spinner" class="hidden w-5 h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin"></div>
+                            </button>
+                            <p class="text-center text-slate-500 text-xs mt-4 italic">제출 버튼을 누르면 담당자에게 즉시 전송됩니다.</p>
+                        </div>
+                    </form>
+                </div>
+                <!-- Background Glow -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-yellow-500/10 blur-[100px] -z-0"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 blur-[100px] -z-0"></div>
             </div>
         </section>
 
         <!-- CTA Section -->
         <section class="text-center py-12">
-            <div class="bg-educare-yellow rounded-[3rem] p-12 md:p-20 relative overflow-hidden">
-                <div class="relative z-10">
-                    <h2 class="text-3xl md:text-5xl font-black text-slate-900 mb-8">
-                        지금 바로 신청하고<br/>얼리버드 혜택을 받으세요!
+            <div class="bg-educare-yellow rounded-[3rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
+                <div class="relative z-10 space-y-10">
+                    <h2 class="text-3xl md:text-5xl font-black text-slate-900 leading-tight">
+                        '좋아요' 너머에는<br/>
+                        <span class="bg-white/40 px-3 italic">만나고 싶은 관람객</span>이 있습니다
                     </h2>
+                    <p class="text-slate-800 font-bold text-lg opacity-80 leading-relaxed">
+                        인스타그램에만 머물기엔 아쉬운 우리 브랜드라면,<br/>
+                        진짜 구매를 결정하는 <span class="underline underline-offset-4 decoration-white">6만 명의 눈빛</span>을 유교전에서 마주하세요.
+                    </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <a href="#" class="w-full sm:w-auto bg-slate-900 text-white px-10 py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-3 no-underline hover:scale-105 transition-transform">
-                            참가 신청서 작성 🖱️
+                        <a href="https://www.eformsign.com/?s=3Z7M9U" target="_blank" class="w-full sm:w-auto bg-slate-900 text-white px-10 py-5 rounded-2xl font-black text-xl flex items-center justify-center gap-3 no-underline hover:scale-105 transition-transform shadow-xl">
+                            함께하기 (참가 신청) ↗
+                        </a>
+                        <a href="http://www.educare.co.kr/" target="_blank" class="w-full sm:w-auto bg-white/30 backdrop-blur-md text-slate-900 border border-white/50 px-10 py-5 rounded-2xl font-black text-xl flex items-center justify-center no-underline hover:bg-white/50 transition-all">
+                            전시회 더 알아보기 🔍
                         </a>
                     </div>
-                    <p class="mt-8 text-slate-800/60 font-bold text-sm">
-                        문의: 02-XXX-XXXX | educare@world-expo.co.kr
-                    </p>
                 </div>
-                <!-- Background Pattern -->
                 <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 24px 24px;"></div>
             </div>
         </section>
 
     </main>
 
+    <!-- Success Modal -->
+    <div id="success-modal">
+        <div class="bg-white p-10 rounded-[2rem] shadow-2xl text-center max-w-sm mx-6 border border-yellow-100">
+            <div class="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">✓</div>
+            <h3 class="text-2xl font-black text-slate-900 mb-2 tracking-tighter">신청이 완료되었습니다!</h3>
+            <p class="text-slate-500 mb-8 leading-relaxed font-medium">담당자가 내용을 확인한 후 <br/>남겨주신 연락처로 곧 연락드리겠습니다.</p>
+            <button onclick="closeModal()" class="w-full bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition-colors">확인</button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="max-w-5xl mx-auto px-6 pt-12 text-slate-400">
         <div class="flex flex-col md:flex-row justify-between items-center gap-8 border-t border-slate-100 pt-12 pb-20">
-            <div class="flex items-center gap-2 grayscale opacity-50">
-                <div class="w-8 h-8 bg-slate-400 rounded-lg flex items-center justify-center font-black text-white text-lg">E</div>
-                <span class="font-black text-lg tracking-tight">EDUCARE</span>
+            <div class="flex items-center gap-2 grayscale opacity-60">
+                <div class="w-8 h-8 bg-slate-400 rounded-lg flex items-center justify-center font-black text-white text-lg">유</div>
+                <div class="flex flex-col leading-none">
+                    <span class="font-black text-sm tracking-tight italic uppercase">EDUCARE&KIDS FAIR</span>
+                    <span class="text-[8px] font-bold uppercase tracking-widest mt-1">World-Expo Co., Ltd. & Sege Fairs</span>
+                </div>
             </div>
-            <div class="flex gap-6 text-sm font-bold">
-                <a href="#" class="hover:text-slate-600">이용약관</a>
-                <a href="#" class="hover:text-slate-600">개인정보처리방침</a>
-                <a href="#" class="hover:text-slate-600">참가문의</a>
-            </div>
-            <p class="text-xs font-medium">© 2026 WORLD-EXPO. All rights reserved.</p>
+            <p class="text-xs font-medium italic">2026.07.30 - 08.02 @COEX A Hall</p>
+            <p class="text-xs font-medium">© 2026 (주)세계전람. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE"; 
+
+        const form = document.getElementById('inquiry-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const spinner = document.getElementById('loading-spinner');
+        const modal = document.getElementById('success-modal');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            submitBtn.disabled = true;
+            spinner.classList.remove('hidden');
+
+            const formData = new FormData(form);
+
+            if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+                console.log("데이터 확인:", Object.fromEntries(formData));
+                setTimeout(() => {
+                    spinner.classList.add('hidden');
+                    modal.style.display = 'flex';
+                    form.reset();
+                    submitBtn.disabled = false;
+                }, 1500);
+                return;
+            }
+
+            fetch(SCRIPT_URL, { method: 'POST', body: formData })
+                .then(response => {
+                    spinner.classList.add('hidden');
+                    modal.style.display = 'flex';
+                    form.reset();
+                    submitBtn.disabled = false;
+                })
+                .catch(error => {
+                    spinner.classList.add('hidden');
+                    submitBtn.disabled = false;
+                    alert('전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+                    console.error('Error!', error.message);
+                });
+        });
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
